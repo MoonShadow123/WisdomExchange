@@ -9,10 +9,8 @@ import com.example.wisdomexchange.R;
 
 
 /**
- * The type Splash activity.
- *
  * @Author: PengLiang
- * @Time: 2020 /11/12
+ * @Time: 2020/11/12
  * @Description: 启动页
  */
 public class SplashActivity extends AppCompatActivity {
@@ -22,12 +20,13 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        // 休眠500毫秒然后进入主页面
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Thread.sleep(500);
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, ChatActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
@@ -35,8 +34,9 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         }).start();
-    }
 
+
+    }
 
 
 }

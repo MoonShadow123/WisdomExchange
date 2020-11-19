@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">智慧交流</string>
+
+    <string name="chat_welcome">你好！我是图灵机器人！\n咱们聊点什么呢？\n你有什么要问的吗？</string>
 </resources>

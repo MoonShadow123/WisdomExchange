@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    chat-->
+    <color name="chatBg">#ededed</color>
+    <color name="chatLine">#d2d2d2</color>
+    <color name="chatBottom">#f7f7f7</color>
+    <color name="chatBtn">#07c160</color>
+    <color name="chatBtnSel">#06ac56</color>
+    <color name="chatMsg">#95ec69</color>
+
 </resources>

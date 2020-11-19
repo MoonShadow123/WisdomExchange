@@ -6,8 +6,11 @@ import android.os.Bundle;
 
 import com.example.wisdomexchange.R;
 
+
 /**
- * The type Main activity.
+ * @Author: PengLiang
+ * @Time: 2020/11/13
+ * @Description: 主页面
  */
 public class MainActivity extends AppCompatActivity {
 
