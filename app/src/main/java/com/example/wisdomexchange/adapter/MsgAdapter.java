@@ -14,6 +14,11 @@ import com.example.wisdomexchange.bean.Msg;
 
 import java.util.List;
 
+/**
+ * @Author: PengLiang
+ * @Time: 2020/11/21
+ * @Description: 聊天列表适配器
+ */
 public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
     private List<Msg> msgList;
 

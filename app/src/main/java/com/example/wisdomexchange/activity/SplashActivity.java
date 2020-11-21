@@ -1,18 +1,14 @@
 package com.example.wisdomexchange.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.widget.Toast;
 
-import com.example.wisdomexchange.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 
 /**
  * @Author: PengLiang
- * @Time: 2020/11/12
+ * @Time: 2020/11/21
  * @Description: 启动页
  */
 public class SplashActivity extends AppCompatActivity {

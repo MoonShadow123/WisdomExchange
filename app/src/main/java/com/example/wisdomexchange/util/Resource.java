@@ -2,7 +2,7 @@ package com.example.wisdomexchange.util;
 
 /**
  * @Author: PengLiang
- * @Time: 2020/11/13
+ * @Time: 2020/11/21
  * @Description: 网络接口
  */
 public class Resource {

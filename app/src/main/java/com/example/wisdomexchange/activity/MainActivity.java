@@ -1,15 +1,15 @@
 package com.example.wisdomexchange.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.wisdomexchange.R;
 
 
 /**
  * @Author: PengLiang
- * @Time: 2020/11/13
+ * @Time: 2020/11/21
  * @Description: 主页面
  */
 public class MainActivity extends AppCompatActivity {

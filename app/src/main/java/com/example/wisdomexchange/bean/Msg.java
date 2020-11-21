@@ -1,10 +1,8 @@
 package com.example.wisdomexchange.bean;
 
-import kotlin.reflect.KType;
-
 /**
  * @Author: PengLiang
- * @Time: 2020/11/13
+ * @Time: 2020/11/21
  * @Description: 消息实体类
  */
 public class Msg {

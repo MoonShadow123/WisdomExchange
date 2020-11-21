@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_et_chat"
             android:ellipsize="none"
-            android:hint="输入你的问题"
+            android:hint="@string/chat_hint"
             android:inputType="textMultiLine"
             android:lineSpacingMultiplier="1.2"
             android:maxLength="200"
@@ -52,7 +52,7 @@
             android:layout_gravity="center"
             android:background="@drawable/sel_btn_chat"
             android:gravity="center"
-            android:text="发送"
+            android:text="@string/chat_send"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:theme="@null" />

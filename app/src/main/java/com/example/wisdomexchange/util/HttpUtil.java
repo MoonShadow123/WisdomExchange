@@ -1,13 +1,12 @@
 package com.example.wisdomexchange.util;
 
-import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
 /**
  * @Author: PengLiang
- * @Time: 2020/11/13
+ * @Time: 2020/11/21
  * @Description: 网络通信工具类
  */
 public class HttpUtil {

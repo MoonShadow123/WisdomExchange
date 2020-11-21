@@ -1,17 +1,10 @@
 package com.example.wisdomexchange.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,10 +13,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.wisdomexchange.R;
 import com.example.wisdomexchange.adapter.MsgAdapter;
 import com.example.wisdomexchange.bean.Msg;
 import com.example.wisdomexchange.util.HttpUtil;
+import com.example.wisdomexchange.util.NetCheckUtil;
 import com.example.wisdomexchange.util.Resource;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,13 +35,12 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
  * @Author: PengLiang
- * @Time: 2020/11/13
+ * @Time: 2020/11/21
  * @Description: 聊天页面
  */
 public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
@@ -63,6 +60,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_chat);
         initView(); // 初始化组件
         initRcy(); // 初始化RecyclerView
+
+        if (!NetCheckUtil.checkNet(this)) {
+            Toast.makeText(this, "网络未连接", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void initRcy() {
@@ -122,13 +123,20 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     //     按钮的提交
     private void submit() {
         content = inputEt.getText().toString().trim();
-        if (!TextUtils.isEmpty(content)) {
-            addNewMessage(content, Msg.TYPE_SEND);
-            inputEt.setText("");  // 发送消息后输入框清空
-            sendHttpRequest();
+        // 判断网络情况
+        if (NetCheckUtil.checkNet(this)) {
+            if (!TextUtils.isEmpty(content)) {
+                addNewMessage(content, Msg.TYPE_SEND);
+                inputEt.setText("");  // 发送消息后输入框清空
+                sendHttpRequest();
+            } else {
+                Toast.makeText(this, "你没有输入内容！", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, "你没有输入内容！", Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this, "网络连接不可用 ，请稍后重试", Toast.LENGTH_SHORT).show();
+        } 
+
+
     }
 
     // 发送网络请求
