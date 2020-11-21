@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.example.wisdomexchange.R;
 
@@ -18,8 +20,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
+//        setContentView(R.layout.activity_splash);
         // 休眠500毫秒然后进入主页面
         new Thread(new Runnable() {
             @Override
@@ -37,6 +38,5 @@ public class SplashActivity extends AppCompatActivity {
 
 
     }
-
 
 }

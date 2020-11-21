@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -225,5 +228,18 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // 实现只在冷启动时显示启动页，即点击返回键与点击HOME键退出效果一致
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed(); 这句话一定要注释掉，不然又去调用默认的back处理方式了
+        // 监听返回键，让返回键实现HOME键的功能
+        // 实现HOME键功能，简而言之就是回到桌面，让Activity不销毁，程序后台运行
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        //  Intent.FLAG_ACTIVITY_NEW_TASK  使用一个新的 Task 来启动一个 Activity ，但是启动的每个 Activity 都将在一个新的 Task 中 ( 不然 NEW_TASK 这个称号不是白费了吗 )。
+        //  这种方式通常使用在 Service 中启动 Activity 的情况，由于在 Service 中不存在 Activity 栈。所以使用该 Flag 来创建一个新的 Activity 栈。并创建新的 Activity 实例 。
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
 
 }
