@@ -16,4 +16,6 @@
     <color name="chatBtnSel">#06ac56</color>
     <color name="chatMsg">#95ec69</color>
 
+    <color name="toastColor">#8f97ff</color>
+
 </resources>

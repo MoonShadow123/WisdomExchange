@@ -23,6 +23,7 @@ import com.example.wisdomexchange.bean.Msg;
 import com.example.wisdomexchange.util.HttpUtil;
 import com.example.wisdomexchange.util.NetCheckUtil;
 import com.example.wisdomexchange.util.Resource;
+import com.example.wisdomexchange.util.ToastUtil;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -62,7 +63,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         initRcy(); // 初始化RecyclerView
 
         if (!NetCheckUtil.checkNet(this)) {
-            Toast.makeText(this, "网络未连接", Toast.LENGTH_SHORT).show();
+            ToastUtil.show(this, "网络未连接");
         }
     }
 
@@ -133,8 +134,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "你没有输入内容！", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(this, "网络连接不可用 ，请稍后重试", Toast.LENGTH_SHORT).show();
-        } 
+            ToastUtil.show(this, "网络连接不可用 ，请稍后重试");
+        }
 
 
     }
@@ -239,6 +240,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     // 实现只在冷启动时显示启动页，即点击返回键与点击HOME键退出效果一致
     @Override
     public void onBackPressed() {
+        ToastUtil.cancelToast(); // 关闭Toast
 //        super.onBackPressed(); 这句话一定要注释掉，不然又去调用默认的back处理方式了
         // 监听返回键，让返回键实现HOME键的功能
         // 实现HOME键功能，简而言之就是回到桌面，让Activity不销毁，程序后台运行
@@ -250,4 +252,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
+    @Override
+    protected void onPause() {
+        ToastUtil.cancelToast(); // 关闭Toast
+        super.onPause();
+    }
 }
