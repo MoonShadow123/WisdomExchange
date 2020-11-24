@@ -11,14 +11,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wisdomexchange.R;
 import com.example.wisdomexchange.adapter.MsgAdapter;
+import com.example.wisdomexchange.base.BaseActivity;
 import com.example.wisdomexchange.bean.Msg;
 import com.example.wisdomexchange.util.HttpUtil;
 import com.example.wisdomexchange.util.NetCheckUtil;
@@ -44,7 +43,7 @@ import okhttp3.Response;
  * @Time: 2020/11/21
  * @Description: 聊天页面
  */
-public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChatActivity extends BaseActivity implements View.OnClickListener {
     private RecyclerView recyclerView;
     private Button sendBtn;
     private EditText inputEt;
@@ -131,7 +130,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 inputEt.setText("");  // 发送消息后输入框清空
                 sendHttpRequest();
             } else {
-                Toast.makeText(this, "你没有输入内容！", Toast.LENGTH_SHORT).show();
+                ToastUtil.show(this,"你没有输入内容");
             }
         } else {
             ToastUtil.show(this, "网络连接不可用 ，请稍后重试");

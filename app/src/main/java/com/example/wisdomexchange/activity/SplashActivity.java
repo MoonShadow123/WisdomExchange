@@ -3,7 +3,7 @@ package com.example.wisdomexchange.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.wisdomexchange.base.BaseActivity;
 
 
 /**
@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * @Time: 2020/11/21
  * @Description: 启动页
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 try {
                     Thread.sleep(500);
-                    Intent intent = new Intent(SplashActivity.this, ChatActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (InterruptedException e) {
