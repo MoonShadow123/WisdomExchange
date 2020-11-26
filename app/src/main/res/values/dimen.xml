@@ -2,4 +2,5 @@
 <resources>
     <!--  底部导航选中文字的大小  -->
     <dimen name="design_bottom_navigation_active_text_size">12sp</dimen>
+
 </resources>
